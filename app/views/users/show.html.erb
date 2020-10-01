@@ -1,0 +1,58 @@
+<div class="AccountPage">
+  <div class="AccountPage__title">
+    <h1>マイページ</h1>
+  </div><br>
+  <div class="Account__info">
+    <h2>ユーザー情報</h2>
+  </div>
+  <div class="AccountPage__form">
+    <%= form_for(current_user) do |f| %>
+      <div class="FormField">
+        <div class="FormField__name">
+          <%= f.label :name %>
+        </div>
+        <div class="FormField__name">
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+      </div>
+      <div class="FormField">
+        <div class="FormField__email">
+          <%= f.label :email %>
+        </div>
+        <div class="FormField__email">
+          <%= f.email_field :email %>
+        </div>
+        <br>
+      </div>
+      <div class="FormField">
+        <div class="FormField__label--normal">
+          <%= f.label :プロフィール画像 %>
+        </div>
+        <div class="FormField__input--normal">
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="FormField">
+        <div class="FormField__label--normal">
+          <%= f.label :メンター登録 %>
+        </div>
+        <div class="FormField__input--normal">
+          <%= f.collection_select(:mentor_id, Mentor.all, :id, :name, {}, {class:"mentor-select"}) %>
+        </div>
+      </div>
+      <div class="FormField">
+        <div class="FormField__label--normal">
+          <%= f.label :得意なカテゴリ %>
+        </div>
+        <div class="FormField__input--normal">
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+        </div>
+      </div>
+      <%= f.submit "更新する" %>
+    <br>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+    <br>
+    <%= link_to "トップへ戻る", root_path%>
+    <% end %>
+  </div>
+</div>

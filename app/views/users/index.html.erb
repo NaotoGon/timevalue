@@ -1,0 +1,10 @@
+<%= link_to 'マイページへ行く', user_path(current_user) %>
+<div class="content">
+  <% @users.each do |user| %> 
+    <p>名前：<%= user.name %></p>
+    <% if user.image.attached? %>
+      <%= image_tag user.image, class: "user-img" %>
+    <% end %>
+    <%= link_to '気になる'%>
+  <% end %>
+</div>
