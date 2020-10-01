@@ -1,1 +1,7 @@
-<h1>User page</h1>
+<%= link_to 'マイページへ行く' %>
+<div class="content">
+  <% @users.each do |user| %> 
+    <p>名前：<%= user.name %></p>
+    <%= link_to '気になる'%>
+  <% end %>
+</div>
