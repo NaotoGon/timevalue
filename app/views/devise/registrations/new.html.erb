@@ -27,7 +27,7 @@
           <%= f.label :メンター登録 %>
         </div>
         <div class="FormField__input--normal">
-          <%= f.collection_select(:mentor_id, Mentor.all, :id, :mentor, {}, {class:"mentor-select"}) %>
+          <%= f.collection_select(:mentor_id, Mentor.all, :id, :name, {}, {class:"mentor-select"}) %>
         </div>
       </div>
       <div class="FormField">
@@ -35,7 +35,7 @@
           <%= f.label :得意なカテゴリ %>
         </div>
         <div class="FormField__input--normal">
-          <%= f.collection_select(:category_id, Category.all, :id, :catagory, {}, {class:"category-select"}) %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
         </div>
       </div>
       <div class="FormField">
